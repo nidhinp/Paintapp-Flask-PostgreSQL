@@ -1,0 +1,23 @@
+{% include "base.html" %}
+{% block content %}  
+<p><h2>Saved files</h2></p>
+    
+{% if files %}
+<ol>
+    {% for file in files %}
+        <li><p style="color: blue; cursor: pointer;">{{ file[1] }}</p></li>       
+    {% endfor %}
+</ol>
+{% endif %}
+
+<form action="{{ url_for('search') }}" method="post">
+    <p><label>filename</label><input name="fname" type="text">
+    <input type="submit" value="show"></p>
+</form>   
+
+<script src=" {{ url_for('static', filename='save.js') }}"></script>
+{% endblock %}
+
+
+    
+
